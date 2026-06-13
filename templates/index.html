@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Learning Website</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <h1 class="logo">
+        PYTHON
+    </h1>
+
+    <p class="sub-title">
+        Start Your Coding Journey
+    </p>
+
+    <div style="margin-top:40px;">
+
+        <a href="/signup">
+            <button style="width:100%;margin-bottom:15px;">
+                회원가입
+            </button>
+        </a>
+
+        <a href="/login">
+            <button style="width:100%;">
+                로그인
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

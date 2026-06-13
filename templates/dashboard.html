@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<body>
+
+<div class="dashboard-card">
+
+<h1>Python Learning Dashboard</h1>
+
+<div class="level-box">
+    현재 레벨 : {{ level }}
+</div>
+
+<p style="font-size:22px;">
+    진행률 : {{ xp }}%
+</p>
+
+<div class="progress-title">
+    학습 진행률
+</div>
+
+<div class="progress-bar">
+    <div
+        class="progress-fill"
+        style="width: 50%;">
+    </div>
+</div>
+
+<div class="xp">
+    {{ xp }} / 100 XP
+</div>
+
+{% if xp < 30 %}
+<p class="rank">초급 학습자</p>
+
+{% elif xp < 70 %}
+<p class="rank">중급 학습자</p>
+
+{% else %}
+<p class="rank">고급 학습자</p>
+
+{% endif %}
+
+<div class="button-area">
+
+    <a href="/learning">
+        <button class="action-btn blue">
+            학습하기
+        </button>
+    </a>
+
+    <a href="/level_test">
+        <button class="action-btn green">
+            레벨 테스트
+        </button>
+    </a>
+
+    <a href="/wrong_answer">
+        <button class="action-btn orange">
+            오답노트
+        </button>
+    </a>
+
+</div>
+
+{% if logged_in %}
+<a href="/logout">
+    <button class="logout">
+        로그아웃
+    </button>
+</a>
+{% endif %}
+
+<div class="goal-box">
+
+    <h3>오늘의 목표</h3>
+
+    <ul>
+
+        <li>Python 변수 학습</li>
+
+        <li>Python 함수 학습</li>
+
+        <li>XP 10 획득</li>
+
+    </ul>
+
+</div>
+
+</div>
+
+</body>
+</html>
+

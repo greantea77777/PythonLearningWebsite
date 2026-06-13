@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Level Test</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="page-card">
+
+    <h1 class="page-title">
+        Python Level Test
+    </h1>
+
+    <form method="POST">
+
+        <div class="content-box">
+
+            <p>1. Python 출력 함수는?</p>
+            <input type="radio" name="q1" value="correct"> print()<br>
+            <input type="radio" name="q1" value="wrong"> input()<br><br>
+
+            <p>2. 사용자 입력 함수는?</p>
+            <input type="radio" name="q2" value="correct"> input()<br>
+            <input type="radio" name="q2" value="wrong"> print()<br><br>
+
+            <p>3. 리스트(List) 표기법은?</p>
+            <input type="radio" name="q3" value="correct"> [ ]<br>
+            <input type="radio" name="q3" value="wrong"> { }<br><br>
+
+            <p>4. 조건문은?</p>
+            <input type="radio" name="q4" value="correct"> if<br>
+            <input type="radio" name="q4" value="wrong"> for<br><br>
+
+            <p>5. 반복문은?</p>
+            <input type="radio" name="q5" value="correct"> for<br>
+            <input type="radio" name="q5" value="wrong"> break<br><br>
+
+        </div>
+
+        <br>
+
+        <button
+            type="submit"
+            class="primary-btn">
+
+            제출
+
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/logout">
+        <button class="logout-btn">
+            로그아웃
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>

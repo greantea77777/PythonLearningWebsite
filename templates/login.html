@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <h1 class="logo">PYTHON</h1>
+     <p class="sub-title">
+        Learn Python Step by Step
+    </p>
+
+    <form method="POST" class="auth-form">
+
+        <input
+            type="email"
+            name="email"
+            placeholder="이메일"
+            aria-label="이메일 입력"
+            required>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="비밀번호"
+            aria-label="비밀번호 입력"
+            required>
+
+        <button type="submit">
+            로그인
+        </button>
+
+    </form>
+
+    <p class="bottom-text">
+        계정이 없으신가요?
+        <a href="/signup">회원가입</a>
+    </p>
+
+</div>
+
+</body>
+</html>
+
+<h1 class="logo">PYTHON</h1>
+
+<p class="sub-title">
+    Learn Python Step by Step
+</p>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추천 코스</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="page-card">
+
+    <h1 class="page-title">
+        레벨 테스트 결과
+    </h1>
+
+    <div class="content-box">
+
+        <h2>
+            점수 : {{ score }} / 5
+        </h2>
+
+        <br>
+
+        <h2>
+            나의 레벨 :
+            <span style="color:#0ea5e9;">
+                {{ level }}
+            </span>
+        </h2>
+
+    </div>
+
+    <div class="content-box">
+
+        <h2>추천 학습 순서</h2>
+
+        <br>
+
+        {% if level == "Beginner" %}
+
+            <ul>
+                <li>Python 기초 문법</li>
+                <li>변수와 자료형</li>
+                <li>조건문</li>
+                <li>반복문</li>
+            </ul>
+
+        {% elif level == "Intermediate" %}
+
+            <ul>
+                <li>함수</li>
+                <li>리스트</li>
+                <li>딕셔너리</li>
+                <li>파일 입출력</li>
+            </ul>
+
+        {% else %}
+
+            <ul>
+                <li>객체지향 프로그래밍</li>
+                <li>클래스</li>
+                <li>Flask</li>
+                <li>데이터베이스</li>
+            </ul>
+
+        {% endif %}
+
+    </div>
+
+    <br>
+
+    <a href="/dashboard">
+        <button class="primary-btn">
+            Dashboard 이동
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>
