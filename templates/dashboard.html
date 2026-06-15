@@ -16,6 +16,19 @@
 <div class="dashboard-card">
 
 <h1>Python Learning Dashboard</h1>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+
+        <div id="flash-message" class="flash-message">
+
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+{% endwith %}
 
 <div class="level-box">
     현재 레벨 : {{ level }}
@@ -30,10 +43,11 @@
 </div>
 
 <div class="progress-bar">
-    <div
-        class="progress-fill"
-        style="width: 50%;">
+
+    <div class="progress-fill"
+         style="width: {{ xp }}%;">
     </div>
+
 </div>
 
 <div class="xp">
@@ -85,20 +99,53 @@
 
     <h3>오늘의 목표</h3>
 
+    {% if level == "Beginner" %}
+
     <ul>
-
-        <li>Python 변수 학습</li>
-
-        <li>Python 함수 학습</li>
-
+        <li>print() 함수 학습</li>
+        <li>input() 함수 학습</li>
+        <li>변수와 반복문 이해하기</li>
         <li>XP 10 획득</li>
-
     </ul>
 
-</div>
+    {% elif level == "Intermediate" %}
+
+    <ul>
+        <li>함수(Function) 학습</li>
+        <li>리스트(List)와 딕셔너리(Dictionary) 학습</li>
+        <li>파일 입출력 실습하기</li>
+        <li>XP 10 획득</li>
+    </ul>
+
+    {% elif level == "Advanced" %}
+
+    <ul>
+        <li>객체지향 프로그래밍(OOP) 학습</li>
+        <li>클래스(Class) 이해하기</li>
+        <li>Flask 웹 개발 학습</li>
+        <li>SQLite 데이터베이스 연동</li>
+        <li>XP 10 획득</li>
+    </ul>
+
+    {% endif %}
 
 </div>
 
+</div>
+
+<script>
+
+setTimeout(function(){
+
+    let flash = document.getElementById("flash-message");
+
+    if(flash){
+        flash.style.opacity = "0";
+    }
+
+}, 2500);
+
+</script>
 </body>
 </html>
 

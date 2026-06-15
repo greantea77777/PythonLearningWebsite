@@ -1,46 +1,80 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wrong Answer Note</title>
-    <link rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}">
+
+
+<link rel="stylesheet"
+  href="{{ url_for('static', filename='style.css') }}">
+
+
 </head>
+
 <body>
 
 <div class="page-card">
 
-    <h1 class="page-title">
-        오답노트
-    </h1>
 
-    <div class="content-box">
+<h1 class="page-title">
+    오답노트
+</h1>
 
-        <h3>틀린 문제 복습</h3>
+<div class="content-box">
 
-        <hr><br>
+    <h3>틀린 문제 복습</h3>
 
-        <p><b>문제 3</b></p>
-        <p>리스트(List) 표기법은?</p>
-        <p>내 답: { }</p>
-        <p>정답: [ ]</p>
+    <hr><br>
 
-        <br><hr><br>
+    {% if wrong_answers %}
 
-        <p><b>문제 5</b></p>
-        <p>반복문은?</p>
-        <p>내 답: break</p>
-        <p>정답: for</p>
+        {% for item in wrong_answers %}
 
-    </div>
+            <div style="margin-bottom:30px;">
 
-    <br>
+                <p>
+                    <b>문제</b>
+                </p>
 
-    <a href="/dashboard">
-        <button class="primary-btn">
-            Dashboard로 돌아가기
-        </button>
-    </a>
+                <p>
+                    {{ item.question }}
+                </p>
+
+                <p>
+                    <b>정답 :</b>
+                    {{ item.answer }}
+                </p>
+
+            </div>
+
+            <hr><br>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>
+            틀린 문제가 없습니다.
+        </p>
+
+    {% endif %}
+
+</div>
+
+<br>
+
+<a href="/dashboard">
+
+    <button
+        class="primary-btn">
+
+        Dashboard로 돌아가기
+
+    </button>
+
+</a>
+
 
 </div>
 

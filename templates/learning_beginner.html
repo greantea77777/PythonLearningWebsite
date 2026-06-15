@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning</title>
+
+
+<link rel="stylesheet"
+  href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+<body>
+
+<div class="page-card">
+
+
+<h1 class="page-title">
+    Python 기초 학습
+</h1>
+
+<div class="content-box">
+
+    <h2>오늘 배울 내용</h2>
+
+    <ul>
+        <li>print() 함수</li>
+        <li>input() 함수</li>
+        <li>변수(variable)</li>
+        <li>if 조건문</li>
+        <li>for 반복문</li>
+    </ul>
+
+    <br>
+
+    <hr>
+
+    <h3>1. print() 함수</h3>
+
+
+<pre>
+print("Hello World")
+</pre>
+
+
+    <p>
+        print() 함수는 화면에 내용을 출력하는 함수입니다.
+    </p>
+
+    <hr>
+
+    <h3>2. input() 함수</h3>
+
+
+<pre>
+name = input("이름을 입력하세요")
+</pre>
+
+
+    <p>
+        사용자로부터 입력을 받을 때 사용합니다.
+    </p>
+
+    <hr>
+
+    <h3>3. 변수 (Variable)</h3>
+
+
+<pre>
+name = "Python"
+age = 20
+</pre>
+
+
+    <p>
+        변수는 데이터를 저장하는 공간입니다.
+    </p>
+
+    <hr>
+
+    <h3>4. if 조건문</h3>
+
+
+<pre>
+age = 20
+
+if age >= 20:
+    print("성인")
+</pre>
+
+
+    <p>
+        조건이 참일 때만 실행됩니다.
+    </p>
+
+    <hr>
+
+    <h3>5. for 반복문</h3>
+
+
+<pre>
+for i in range(5):
+    print(i)
+</pre>
+
+
+    <p>
+        같은 작업을 여러 번 반복할 때 사용합니다.
+    </p>
+
+    <br>
+
+    <p>
+        위 내용을 학습한 후 학습 완료 버튼을 눌러주세요.
+    </p>
+
+</div>
+
+<br>
+
+<form action="/complete_learning" method="POST">
+
+    <button
+        type="submit"
+        class="primary-btn"
+        aria-label="학습 완료 버튼">
+
+        학습 완료 (+10 XP)
+
+    </button>
+
+</form>
+
+<br>
+
+<a href="/dashboard">
+
+    <button
+        type="button"
+        class="secondary-btn"
+        aria-label="대시보드로 이동">
+
+        ← Dashboard
+
+    </button>
+
+</a>
+
+<br><br>
+
+<a href="/logout">
+
+    <button
+        class="logout-btn"
+        aria-label="로그아웃">
+
+        로그아웃
+
+    </button>
+
+</a>
+
+
+</div>
+
+</body>
+</html>

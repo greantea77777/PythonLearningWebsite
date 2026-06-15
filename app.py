@@ -1,7 +1,12 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, flash
 import sqlite3
 
+import os
+
+print("DB PATH =", os.path.abspath("database.db"))
+
 app = Flask(__name__)
+app.secret_key = "python_project"
 current_user_id = None
 
 conn = sqlite3.connect("database.db")
@@ -145,10 +150,39 @@ def learning():
 
     global current_user_id
 
-    if current_user_id is None:
-        return redirect("/login")
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
 
-    return render_template("learning.html")
+    cursor.execute(
+        "SELECT level FROM User WHERE user_id=?",
+        (current_user_id,)
+    )
+
+    result = cursor.fetchone()
+
+    print("current_user_id =", current_user_id)
+    print("result =", result)
+
+    conn.close()
+
+    if result is None:
+        return "사용자를 찾을 수 없습니다."
+
+    level = result[0]
+
+    print("level =", level)
+
+    if level == "Beginner":
+        return render_template("learning_beginner.html")
+
+    elif level == "Intermediate":
+        return render_template("learning_intermediate.html")
+
+    elif level == "Advanced":
+        return render_template("learning_advanced.html")
+
+    else:
+        return f"level 값이 이상함: {level}"
 
 @app.route("/complete_learning", methods=["POST"])
 def complete_learning():
@@ -170,17 +204,19 @@ def complete_learning():
     conn.commit()
     conn.close()
 
+    flash(" XP +10 획득!")
+
     return redirect("/dashboard")
 
 @app.route("/wrong_answer")
 def wrong_answer():
 
-    global current_user_id
+    wrong_answers = session.get("wrong_answers", [])
 
-    if current_user_id is None:
-        return redirect("/login")
-
-    return render_template("wrong_answer.html")
+    return render_template(
+        "wrong_answer.html",
+        wrong_answers=wrong_answers
+    )
 
 @app.route("/level_test", methods=["GET", "POST"])
 def level_test():
@@ -188,12 +224,28 @@ def level_test():
     if request.method == "POST":
 
         score = 0
+        wrong_answers = []
 
-        answers = ["q1", "q2", "q3", "q4", "q5"]
+        questions = {
+            "q1": ("Python 출력 함수는?", "print()"),
+            "q2": ("사용자 입력 함수는?", "input()"),
+            "q3": ("리스트(List) 표기법은?", "[ ]"),
+            "q4": ("조건문은?", "if"),
+            "q5": ("반복문은?", "for")
+        }
 
-        for answer in answers:
-            if request.form.get(answer) == "correct":
+        for q in questions:
+
+            if request.form.get(q) == "correct":
                 score += 1
+
+            else:
+                wrong_answers.append({
+                    "question": questions[q][0],
+                    "answer": questions[q][1]
+                })
+
+        session["wrong_answers"] = wrong_answers
 
         if score <= 2:
             level = "Beginner"
@@ -204,7 +256,6 @@ def level_test():
         else:
             level = "Advanced"
 
-        # DB에 레벨 저장
         conn = sqlite3.connect("database.db")
         cursor = conn.cursor()
 

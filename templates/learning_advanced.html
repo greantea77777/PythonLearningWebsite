@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Learning</title>
+
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="page-card">
+
+    <h1 class="page-title">
+        Advanced Python 학습
+    </h1>
+
+    <div class="content-box">
+
+        <h2>오늘 배울 내용</h2>
+
+        <ul>
+            <li>객체지향 프로그래밍(OOP)</li>
+            <li>클래스(Class)</li>
+            <li>Flask 웹 개발</li>
+            <li>데이터베이스(SQLite)</li>
+        </ul>
+
+        <br>
+
+        <hr>
+
+        <h3>1. 객체지향 프로그래밍(OOP)</h3>
+
+<pre>
+class Dog:
+    pass
+</pre>
+
+        <p>
+            객체지향 프로그래밍은 현실 세계의 객체를 코드로 표현하는 방법입니다.
+        </p>
+
+        <p>
+            Python의 클래스, 객체, 상속, 다형성 등이 OOP의 핵심 개념입니다.
+        </p>
+
+        <hr>
+
+        <h3>2. 클래스(Class)</h3>
+
+<pre>
+class Student:
+
+    def __init__(self, name):
+        self.name = name
+
+student = Student("Tom")
+
+print(student.name)
+</pre>
+
+        <p>
+            클래스는 객체를 만들기 위한 설계도입니다.
+        </p>
+
+        <p>
+            객체마다 서로 다른 데이터를 가질 수 있습니다.
+        </p>
+
+        <hr>
+
+        <h3>3. Flask 웹 개발</h3>
+
+<pre>
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello Flask"
+</pre>
+
+        <p>
+            Flask는 Python으로 웹사이트를 만들 수 있는 프레임워크입니다.
+        </p>
+
+        <p>
+            현재 여러분의 Python Learning Website도 Flask로 제작되었습니다.
+        </p>
+
+        <hr>
+
+        <h3>4. 데이터베이스(SQLite)</h3>
+
+<pre>
+import sqlite3
+
+conn = sqlite3.connect("database.db")
+
+cursor = conn.cursor()
+
+cursor.execute(
+    "SELECT * FROM users"
+)
+
+conn.close()
+</pre>
+
+        <p>
+            데이터베이스는 사용자 정보와 학습 데이터를 저장합니다.
+        </p>
+
+        <p>
+            이 프로젝트에서는 SQLite를 사용하여 회원가입, 로그인, XP를 관리합니다.
+        </p>
+
+        <hr>
+
+        <h3>프로젝트 실전 예제</h3>
+
+<pre>
+@app.route("/dashboard")
+def dashboard():
+
+    return render_template(
+        "dashboard.html"
+    )
+</pre>
+
+        <p>
+            Flask는 URL과 HTML 페이지를 연결하여 동적인 웹사이트를 만듭니다.
+        </p>
+
+        <br>
+
+        <p>
+            Advanced 과정을 학습한 후 학습 완료 버튼을 눌러주세요.
+        </p>
+
+    </div>
+
+    <br>
+
+    <form action="/complete_learning" method="POST">
+
+        <button
+            type="submit"
+            class="primary-btn"
+            aria-label="학습 완료 버튼">
+
+            학습 완료 (+10 XP)
+
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/dashboard">
+
+        <button
+            type="button"
+            class="secondary-btn"
+            aria-label="대시보드로 이동">
+
+            ← Dashboard
+
+        </button>
+
+    </a>
+
+    <br><br>
+
+    <a href="/logout">
+
+        <button
+            class="logout-btn"
+            aria-label="로그아웃">
+
+            로그아웃
+
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+</html>

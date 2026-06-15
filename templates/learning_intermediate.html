@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Learning</title>
+
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="page-card">
+
+    <h1 class="page-title">
+        Intermediate Python 학습
+    </h1>
+
+    <div class="content-box">
+
+        <h2>오늘 배울 내용</h2>
+
+        <ul>
+            <li>함수(Function)</li>
+            <li>리스트(List)</li>
+            <li>딕셔너리(Dictionary)</li>
+            <li>파일 입출력(File I/O)</li>
+        </ul>
+
+        <br>
+
+        <hr>
+
+        <h3>1. 함수(Function)</h3>
+
+<pre>
+def hello():
+    print("Hello")
+
+hello()
+</pre>
+
+        <p>
+            함수는 코드를 재사용하기 위해 만드는 기능입니다.
+        </p>
+
+        <hr>
+
+        <h3>2. 리스트(List)</h3>
+
+<pre>
+fruits = ["apple", "banana", "orange"]
+
+print(fruits[0])
+</pre>
+
+        <p>
+            리스트는 여러 개의 데이터를 순서대로 저장합니다.
+        </p>
+
+        <hr>
+
+        <h3>3. 딕셔너리(Dictionary)</h3>
+
+<pre>
+student = {
+    "name": "Tom",
+    "age": 20
+}
+
+print(student["name"])
+</pre>
+
+        <p>
+            딕셔너리는 key와 value 형태로 데이터를 저장합니다.
+        </p>
+
+        <hr>
+
+        <h3>4. 파일 입출력(File I/O)</h3>
+
+<pre>
+with open("test.txt", "w") as f:
+    f.write("Hello")
+</pre>
+
+        <p>
+            파일에 데이터를 저장하거나 읽어올 수 있습니다.
+        </p>
+
+        <hr>
+
+        <h3>실습 예제</h3>
+
+<pre>
+numbers = [10, 20, 30]
+
+for n in numbers:
+    print(n)
+</pre>
+
+        <p>
+            리스트와 반복문을 함께 사용하는 예제입니다.
+        </p>
+
+        <br>
+
+        <p>
+            Intermediate 과정을 학습한 후 학습 완료 버튼을 눌러주세요.
+        </p>
+
+    </div>
+
+    <br>
+
+    <form action="/complete_learning" method="POST">
+
+        <button
+            type="submit"
+            class="primary-btn"
+            aria-label="학습 완료 버튼">
+
+            학습 완료 (+10 XP)
+
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/dashboard">
+
+        <button
+            type="button"
+            class="secondary-btn"
+            aria-label="대시보드로 이동">
+
+            ← Dashboard
+
+        </button>
+
+    </a>
+
+    <br><br>
+
+    <a href="/logout">
+
+        <button
+            class="logout-btn"
+            aria-label="로그아웃">
+
+            로그아웃
+
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+</html>
