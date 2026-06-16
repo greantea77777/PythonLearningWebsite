@@ -3,6 +3,8 @@
     max-width:420px;
 
     padding:30px;
+    margin:auto;
+
 
     background:white;
     border-radius:25px;
@@ -139,6 +141,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    
 
     background:linear-gradient(
         135deg,
@@ -146,7 +149,7 @@ body{
         #f8fbff
     );
 
-    padding:40px;
+    padding:20px;
 }
 
 .card{
@@ -696,4 +699,9 @@ pre{
     font-weight:bold;
 
     transition:0.8s;
+}
+
+html,
+body{
+    overflow-x:hidden;
 }
