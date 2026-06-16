@@ -1,16 +1,45 @@
 .auth-container{
-    width:420px;
+    width:100%;
+    max-width:420px;
+
+    padding:30px;
 
     background:white;
-
-    padding:50px;
-
     border-radius:25px;
 
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.08);
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
 
     text-align:center;
+}
+
+@media (max-width: 768px){
+
+    body{
+        padding:15px;
+    }
+
+    .auth-container{
+        width:100%;
+        max-width:100%;
+        padding:25px;
+    }
+
+    .logo{
+        font-size:42px;
+    }
+
+    .sub-title{
+        font-size:15px;
+    }
+
+    .auth-form input{
+        height:52px;
+        font-size:16px;
+    }
+
+    .auth-form button{
+        height:52px;
+    }
 }
 
 .logo{
@@ -136,6 +165,7 @@ body{
     text-align:center;
 }
 
+
 .dashboard-card h1{
     font-size:52px;
     color:#38bdf8;
@@ -159,6 +189,74 @@ body{
     margin-bottom:25px;
 }
 
+/* Dashboard Mobile */
+
+@media (max-width:768px){
+
+    .dashboard-card{
+        width:100%;
+        padding:25px;
+        border-radius:20px;
+    }
+
+.dashboard-card h1{
+    font-size:34px;
+}
+
+    .level-box{
+        font-size:20px;
+        padding:12px 20px;
+    }
+
+    .progress-title{
+        font-size:22px;
+    }
+
+    .progress-bar{
+        width:100%;
+    }
+
+    .xp{
+        font-size:20px;
+    }
+
+    .rank{
+        font-size:18px;
+    }
+
+    .button-area{
+        flex-direction:column;
+        align-items:center;
+        gap:15px;
+    }
+
+    .action-btn{
+        width:100%;
+        max-width:300px;
+        height:70px;
+        font-size:18px;
+    }
+
+    .logout{
+        width:100%;
+        max-width:300px;
+        height:55px;
+        font-size:18px;
+    }
+
+    .goal-box{
+        padding:20px;
+    }
+
+    .goal-box h3{
+        font-size:20px;
+    }
+
+    .goal-box li{
+        font-size:16px;
+        padding:12px 0;
+    }
+}
 .progress-title{
     margin-top:20px;
     font-size:32px;
@@ -408,6 +506,19 @@ body{
 
     margin:auto;
 }
+
+@media (max-width:768px){
+
+    .page-card{
+        width:100%;
+        padding:20px;
+    }
+
+    .page-title{
+        font-size:32px;
+    }
+}
+
 
 .page-title{
     text-align:center;
